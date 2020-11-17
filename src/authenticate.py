@@ -1,4 +1,5 @@
 import logging
+import tweepy
 import os
 
 logger = logging.getLogger()
@@ -15,6 +16,7 @@ def create_api():
         wait_on_rate_limit_notify=True)
     try:
         api.verify_credentials()
+        logger.info("Authenticated")
     except Exception as e:
         logger.error("Error creating API", exc_info=True)
         raise e
